@@ -24,7 +24,7 @@ module.exports = {
         extensions: [".js", ".jsx"]
     },
     plugin: [
-        new HtmlWebPackPlugin({
+        new SomeWebpackPlugin({
             template: "./public/index.html"
         }),
     ],

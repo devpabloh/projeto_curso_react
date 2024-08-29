@@ -5,9 +5,27 @@ module.exports = {
     entry: "./src/index.js",
     module: {
         rules: [
-            test: /\.js$/,
+            {test: /\.js$/,
             exclude: /node_modules/,
-            use: {loader: ""}
+            use: {loader: "babel-loader"}
+            },
+            {test: /\.html$/,
+                use: [{loader: "babel-loader"}]
+            },
+            {test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            },
+            {test: /\.(png|jpe?g|gif)$/i,
+                use: ["file-loader"]
+            },
         ]
-    }
-}
+    },
+    resolve: {
+        extensions: [".js", ".jsx"]
+    },
+    plugin: [
+        new HtmlWebPackPlugin({
+            template: "./public/index.html"
+        }),
+    ],
+};

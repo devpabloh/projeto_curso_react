@@ -23,7 +23,7 @@ module.exports = {
     resolve: {
         extensions: [".js", ".jsx"]
     },
-    plugin: [
+    output: [
         new SomeWebpackPlugin({
             template: "./public/index.html"
         }),
